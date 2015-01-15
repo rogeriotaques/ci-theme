@@ -56,25 +56,33 @@ class Theme
 			} 
 			
 			$this->metatags = array(
-				'name-title' => array('name' => 'title', 'content' => ''),
-				'name-description' => array('name' => 'description', 'content' => ''),
-				'name-keywords' => array('name' => 'keywords', 'content' => ''),
-				'name-author' => array('name' => 'author', 'content' => ''),
-				'name-publisher' => array('name' => 'publisher', 'content' => ''),
-				'name-generator' => array('name' => 'generator', 'content' => ''),
+                
+                // facebook api
+                'property-og-type' => array('property' => 'fb:app_id', 'content' => ''),
+                'property-og-type' => array('property' => 'fb:profile_id', 'content' => ''),
+			
+				// open-graph
+	        	'property-og-type' => array('property' => 'og:type', 'content' => 'website'),
+	        	'property-og-title' => array('property' => 'og:title', 'content' => ''),
+	        	'property-og-description' => array('property' => 'og:description', 'content' => ''),
+	        	'property-og-image' => array('property' => 'og:image', 'content' => ''),
+	        	'property-og-site-name' => array('property' => 'og:site_name', 'content' => ''),
+	        	'property-og-url' => array('property' => 'og:url', 'content' => ''),
 				
 				// pre defined
 				'name-viewport' => array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no'),
 				'name-robots' => array('name' => 'robots', 'content' => 'index,follow,all'),
 				'http-equiv-content-type' => array('http-equiv' => 'Content-Type', 'content' => 'text/html; charset=utf-8'),
 				'http-equiv-content-style-type' => array('http-equiv' => 'Content-Style-Type', 'content' => 'text/css'),
-			
-				// open-graph
-	        	'property-og-title' => array('property' => 'og:title', 'content' => ''),
-	        	'property-og-description' => array('property' => 'og:description', 'content' => ''),
-	        	'property-og-image' => array('property' => 'og:image', 'content' => ''),
-	        	'property-og-site-name' => array('property' => 'og:site_name', 'content' => ''),
-	        	'property-og-url' => array('property' => 'og:url', 'content' => ''),
+                
+                // basic html tags
+				'name-title' => array('name' => 'title', 'content' => ''),
+				'name-description' => array('name' => 'description', 'content' => ''),
+				'name-keywords' => array('name' => 'keywords', 'content' => ''),
+				'name-author' => array('name' => 'author', 'content' => ''),
+				'name-publisher' => array('name' => 'publisher', 'content' => ''),
+				'name-generator' => array('name' => 'generator', 'content' => ''),
+                
 			);
 			
 		}
@@ -237,17 +245,24 @@ class Theme
 		public static function metatags()
 		{
 			$ci =& get_instance();
-			$html = '';
+			
+            $html = '';
+			$ignore = array('name-title');   // what will be ignored in main loop
+            
+			// add title (the first meta inside head)
+            // further add a tab before the tag
+			$html .= PHP_EOL . "\t" . "<title >{$ci->theme->metatags['name-title']['content']}</title>" . PHP_EOL;
 			
 			foreach ($ci->theme->metatags as $mk => $mt)
 			{
 				// skip title, coz it uses a specific tag
-				if ( $mk === 'name-title' ) continue;
+				if ( in_array( $mk, $ignore ) ) continue;
 				
 				// skip metatags with empty content
 				if ( !isset($mt['content']) || empty($mt['content']) ) continue;
 				
-				$html .= '<meta ';
+                // create the tag, adding a tab in the begining of line.
+				$html .= "\t" . '<meta ';
 				
 				foreach ($mt as $k => $v)
 				{
@@ -256,9 +271,6 @@ class Theme
 
 				$html .= '>'.PHP_EOL;
 			}
-			
-			// add title
-			$html .= PHP_EOL . "<title >{$ci->theme->metatags['name-title']['content']}</title>" . PHP_EOL;
 			
 			return $html . PHP_EOL;
 			
@@ -365,6 +377,19 @@ class Theme
 			self::set_metatag( array('property' => "og:{$property}", 'content' => $content) );
 			
 		} // set_opengraph 
+		
+		/**
+		 * Set metatags for Facebook Open Graph.
+		 * @param string $property
+		 * @param string $content
+		 * @return void
+		 */
+		public static function set_fb_opengraph( $property, $content = '' )
+		{
+			$property = preg_replace('/fb\:/', '', $property);
+			self::set_metatag( array('property' => "fb:{$property}", 'content' => $content) );
+			
+		} // set_fb_opengraph 
 		
 } // Theme
 

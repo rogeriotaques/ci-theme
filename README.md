@@ -1,4 +1,4 @@
-# CI Theme 1.0 beta
+# CI Theme 1.1 beta
 
 Provides a simple way to implement a theme based website or app using Codeigniter.
 
@@ -217,6 +217,14 @@ It's a static method.
 
 Set metatags for Open Graph.
 
+
+### theme::set_fb_opengraph( property : string, content : string) : void
+
+It's a static method.
+
+Set metatags for Facebook Open Graph.
+
+
 ### theme::metatags( void ) : string
 
 It's a static method.
@@ -233,7 +241,7 @@ Retrieve a string with all set metatags.
 And the result should be something like:
 
 ```
-
+    <title>Your title here</title>
     <meta name="description" content="..." >
     <meta name="keywords" content="..." >
     <meta name="author" content="..." >
