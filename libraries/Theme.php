@@ -228,8 +228,8 @@ class Theme
 				
 				foreach ($element as $pk => $pv)
 				{
-					$pk  = preg_replace(array('/\s\:\_\./'), '-', $pk);
-					$pv  = preg_replace(array('/\s\:\_\./'), '-', $pv);
+					$pk  = preg_replace(array('/\s/','/\:/','/\_/','/\./'), '-', $pk);
+					$pv  = preg_replace(array('/\s/','/\:/','/\_/','/\./'), '-', $pv);
 					$key = strtolower("{$pk}-{$pv}");
 					break;
 				}
