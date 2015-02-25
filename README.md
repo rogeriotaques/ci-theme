@@ -1,4 +1,4 @@
-# CI Theme 1.1 beta
+# CI Theme 1.2 beta
 
 Provides a simple way to implement a theme based website or app using Codeigniter.
 
@@ -266,3 +266,5 @@ And the result should be something like:
 Report bugs, make suggestions and get involved on contributions.
 
 Feel free to get in touch. ;)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rogeriotaques/ci-theme/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

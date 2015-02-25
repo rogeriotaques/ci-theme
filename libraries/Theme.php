@@ -25,7 +25,7 @@
  * @requires PHP5+
  * @author Rogério Taques (rogerio.taques@gmail.com)
  * @see https://github.com/rogeriotaques/ci-theme
- * @version 1.0
+ * @version 1.2
  * 
  */
 
@@ -228,7 +228,8 @@ class Theme
 				
 				foreach ($element as $pk => $pv)
 				{
-					$pk  = preg_replace(array('/\s/','/\:/'), '-', $pk);
+					$pk  = preg_replace(array('/\s\:\_\./'), '-', $pk);
+					$pv  = preg_replace(array('/\s\:\_\./'), '-', $pv);
 					$key = strtolower("{$pk}-{$pv}");
 					break;
 				}
