@@ -1,4 +1,4 @@
-# CI Theme 1.2 beta
+# CI Theme 1.4 beta
 
 Provides a simple way to implement a theme based website or app using Codeigniter.
 
@@ -22,14 +22,14 @@ For example:
 
 ### Config
 
-There are some basic settings that you can change. 
+There are some basic settings that you can change.
 
 All these settings are located on ```./application/config/theme.php```
 
 ```
 
 // --------------------------------------------
-// The varname that you'll call on 
+// The varname that you'll call on
 // your files to output the processed content.
 // --------------------------------------------
 $config['output_var_name'] = 'outputs';
@@ -44,14 +44,14 @@ $config['theme_path'] = '../themes/';
 
 ### Theme file
 
-Create your theme file such as ... 
+Create your theme file such as ...
 
 I.e: ```./application/themes/mytheme.php```
 
 ```
 
     <!DOCTYPE html>
-    
+
     <html>
         <head>
             <title >Sample Theme for CI-Theme</title>
@@ -86,7 +86,7 @@ In the same way you can pass other parameters when loading a default codeigniter
 
 The third parameter should be an Array with all variables that you want to forward to view.
 
-The fourth parameter, if TRUE, ensure that return won't be outputed for browser, but will be returned as string instead. 
+The fourth parameter, if TRUE, ensure that return won't be outputed for browser, but will be returned as string instead.
 
 ## Methods
 
@@ -155,7 +155,7 @@ The format of given element should be array( tag => '', content => '' ) and supp
     * name
     * property
     * http-equiv
-    
+
 I.e:
 
 ```
@@ -202,6 +202,15 @@ Set the metatag publisher.
 It's a static method.
 
 Set the metatag generator.
+
+
+### theme::set_canonical( str : string ) : void
+
+It's a static method.
+
+Set the link rel canonical.
+
+It is very useful to let search engines know whenever your page is a variation from an original source within your site.
 
 
 ### theme::set_robots( piece : string|array ) : void
