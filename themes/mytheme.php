@@ -25,8 +25,13 @@
  * @requires PHP5+
  * @author Rogério Taques (rogerio.taques@gmail.com)
  * @see https://github.com/rogeriotaques/ci-theme
+<<<<<<< Updated upstream
  * @version 1.0
  * 
+=======
+ * @version 1.3
+ *
+>>>>>>> Stashed changes
 -->
 
 <html>
