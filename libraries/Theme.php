@@ -25,7 +25,7 @@
  * @requires PHP5+
  * @author Rogério Taques (rogerio.taques@gmail.com)
  * @see https://github.com/rogeriotaques/ci-theme
- * @version 1.5
+ * @version 1.6.1
  *
  */
 
@@ -123,7 +123,7 @@ class Theme
 		 */
 		function parse($theme = '', $view = '' , $view_data = array(), $return = FALSE)
 		{
-			$this->load->library('parser');
+			$this->ci->load->library('parser');
 			$this->set($this->var_name, $this->ci->parser->parse($view, $view_data, TRUE));
 			return $this->ci->load->view($this->theme_path . $theme, $this->theme_data, $return);
 		}
