@@ -114,20 +114,6 @@ class Theme
 		}
 
 		/**
-		 * Loads a view with a given theme.
-		 * @param string 	$theme
-		 * @param string 	$view
-		 * @param array 	$view_data
-		 * @param boolean 	$return
-		 * @return void
-		 */
-		function load($theme = '', $view = '' , $view_data = array(), $return = FALSE)
-		{
-			$this->set($this->var_name, $this->ci->load->view($view, $view_data, TRUE));
-			return $this->ci->load->view($this->theme_path . $theme, $this->theme_data, $return);
-		}
-
-		/**
 		 * Parse a view with a given theme.
 		 * @param string 	$theme
 		 * @param string 	$view
