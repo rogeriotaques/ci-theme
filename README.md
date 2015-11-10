@@ -1,7 +1,7 @@
-# CI Theme 1.4 beta
+# CI Theme 1.5 beta
 
 Provides a simple way to implement a theme based website or app using Codeigniter.
-From version 1.3 it supports the Template Parser Class, with ```$this->theme->parse()``` method.
+From version 1.5 it supports the Template Parser Class, with ```$this->theme->parse()``` method.
 
 ## Getting Started
 
